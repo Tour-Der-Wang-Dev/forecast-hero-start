@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
@@ -5,7 +6,6 @@ import WeatherSummary from "@/components/WeatherSummary";
 import SubdistrictGrid from "@/components/SubdistrictGrid";
 import FloatingSubdistrictSelector from "@/components/FloatingSubdistrictSelector";
 import Footer from "@/components/Footer";
-import logo from '/public/lovable-uploads/307460108_387435583599238_6386334495691428178_n-removebg-preview.png';
 
 const Index = () => {
   const subdistricts = [
@@ -40,7 +40,6 @@ const Index = () => {
         title="Wang Sam Mo Weather"
         subtitle="Real-time weather across all subdistricts"
         bgImage="/lovable-uploads/image (15).jpg"
-        logo={logo}
       />
       
       <div className="container mx-auto py-8 px-4 space-y-12">
