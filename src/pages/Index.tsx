@@ -1,5 +1,6 @@
 
 import HeroSection from "@/components/HeroSection";
+import WeatherSummary from "@/components/WeatherSummary";
 
 const Index = () => {
   return (
@@ -10,10 +11,13 @@ const Index = () => {
         bgImage="/lovable-uploads/image (15).jpg"
       />
       <div className="container mx-auto py-16 px-4">
-        <h2 className="text-3xl font-bold text-center mb-4">Forecast Hero</h2>
-        <p className="text-xl text-gray-600 text-center">
-          Your complete weather forecast solution
-        </p>
+        <h2 className="text-3xl font-bold text-center mb-8">Current Weather</h2>
+        <WeatherSummary
+          temp={23}
+          condition="Partly Cloudy"
+          lastUpdate={new Date()}
+          icon="⛅"
+        />
       </div>
     </div>
   );
