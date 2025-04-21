@@ -1,8 +1,11 @@
+
 import { useState } from "react";
+import { motion } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
 import WeatherSummary from "@/components/WeatherSummary";
 import SubdistrictGrid from "@/components/SubdistrictGrid";
 import FloatingSubdistrictSelector from "@/components/FloatingSubdistrictSelector";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const subdistricts = [
@@ -18,10 +21,13 @@ const Index = () => {
   const [selectedSubdistrict, setSelectedSubdistrict] = useState("All");
 
   const districts = [
-    { name: "Downtown", cur: 23, min: 18, max: 25, icon: "⛅", onClick: () => console.log("Downtown clicked") },
-    { name: "Riverside", cur: 24, min: 19, max: 26, icon: "☀️", onClick: () => console.log("Riverside clicked") },
-    { name: "Hillside", cur: 21, min: 16, max: 23, icon: "🌥️", onClick: () => console.log("Hillside clicked") },
-    { name: "Bayside", cur: 22, min: 17, max: 24, icon: "🌤️", onClick: () => console.log("Bayside clicked") },
+    { name: "เทศบาลตำบลวังสามหมอ", cur: 28, min: 23, max: 32, icon: "☀️", onClick: () => console.log("วังสามหมอ clicked") },
+    { name: "เทศบาลตำบลลำพันชาด", cur: 27, min: 22, max: 31, icon: "⛅", onClick: () => console.log("ลำพันชาด clicked") },
+    { name: "เทศบาลตำบลผาสุก", cur: 29, min: 24, max: 33, icon: "🌤️", onClick: () => console.log("ผาสุก clicked") },
+    { name: "เทศบาลตำบลหนองหญ้าไซ", cur: 26, min: 22, max: 30, icon: "⛅", onClick: () => console.log("หนองหญ้าไซ clicked") },
+    { name: "เทศบาลตำบลบะยาว", cur: 28, min: 23, max: 31, icon: "☀️", onClick: () => console.log("บะยาว clicked") },
+    { name: "อบต.หนองกุงทับม้า", cur: 27, min: 22, max: 32, icon: "🌤️", onClick: () => console.log("หนองกุงทับม้า clicked") },
+    { name: "อบต.คำโคกสูง", cur: 28, min: 23, max: 33, icon: "☀️", onClick: () => console.log("คำโคกสูง clicked") },
   ];
 
   const filteredDistricts = selectedSubdistrict === "All" 
@@ -29,27 +35,36 @@ const Index = () => {
     : districts.filter(d => d.name === selectedSubdistrict);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white font-sans">
       <HeroSection
-        title="Your Weather Forecast Adventure"
-        subtitle="Get accurate weather forecasts for any location. Plan your outdoor adventures with confidence."
+        title="Wang Sam Mo Weather"
+        subtitle="Real-time weather across all subdistricts"
         bgImage="/lovable-uploads/image (15).jpg"
       />
-      <div className="container mx-auto py-16 px-4 space-y-16">
-        <div>
-          <h2 className="text-3xl font-bold text-center mb-8">Current Weather</h2>
+      
+      <div className="container mx-auto py-8 px-4 space-y-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">Current Weather</h2>
           <WeatherSummary
-            temp={23}
-            condition="Partly Cloudy"
+            temp={28}
+            condition="Sunny"
             lastUpdate={new Date()}
-            icon="⛅"
+            icon="☀️"
           />
-        </div>
+        </motion.div>
         
-        <div>
-          <h2 className="text-3xl font-bold text-center mb-8">District Weather</h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">Subdistrict Weather</h2>
           <SubdistrictGrid districts={filteredDistricts} />
-        </div>
+        </motion.div>
       </div>
 
       <FloatingSubdistrictSelector
@@ -57,6 +72,8 @@ const Index = () => {
         selected={selectedSubdistrict}
         onSelect={setSelectedSubdistrict}
       />
+      
+      <Footer />
     </div>
   );
 };

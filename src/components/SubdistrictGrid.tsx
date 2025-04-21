@@ -36,31 +36,31 @@ const SubdistrictGrid = ({ districts }: SubdistrictGridProps) => {
       variants={container}
       initial="hidden"
       animate="show"
-      className="grid grid-cols-2 md:grid-cols-4 gap-4"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
     >
       {districts.map((district, index) => (
         <motion.div
           key={district.name}
           variants={item}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.03, y: -5 }}
           whileTap={{ scale: 0.98 }}
           onClick={district.onClick}
           className={cn(
-            "bg-white rounded-lg p-4 shadow-sm hover:shadow-md",
-            "cursor-pointer transition-shadow duration-200"
+            "bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-md hover:shadow-lg",
+            "cursor-pointer transition-all duration-200"
           )}
         >
-          <div className="space-y-2">
-            <h3 className="font-medium text-gray-900">{district.name}</h3>
+          <div className="space-y-3">
+            <h3 className="font-medium text-blue-900 text-lg">{district.name}</h3>
             
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-2xl">{district.icon}</span>
-              <span className="text-3xl font-bold text-gray-900">
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-3xl">{district.icon}</span>
+              <span className="text-4xl font-bold text-blue-800">
                 {district.cur}°
               </span>
             </div>
             
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex justify-between text-sm text-blue-600 mt-2">
               <span>L: {district.min}°</span>
               <span>H: {district.max}°</span>
             </div>

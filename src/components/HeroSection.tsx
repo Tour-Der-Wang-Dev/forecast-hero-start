@@ -24,7 +24,7 @@ const heroVariants = {
 
 const HeroSection = ({ title, subtitle, bgImage }: HeroSectionProps) => {
   return (
-    <div className="relative h-[60vh] w-full overflow-hidden">
+    <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -34,7 +34,7 @@ const HeroSection = ({ title, subtitle, bgImage }: HeroSectionProps) => {
       />
       
       {/* Overlay */}
-      <div className="absolute inset-0 bg-blue-100/70" />
+      <div className="absolute inset-0 bg-blue-100/70 backdrop-blur-sm" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center px-4">
@@ -42,7 +42,7 @@ const HeroSection = ({ title, subtitle, bgImage }: HeroSectionProps) => {
           variants={heroVariants}
           initial="hidden"
           animate="visible"
-          className="text-6xl font-bold text-gray-900 mb-6 text-center"
+          className="text-4xl md:text-6xl font-bold text-blue-900 mb-6 text-center"
         >
           {title}
         </motion.h1>
@@ -52,7 +52,7 @@ const HeroSection = ({ title, subtitle, bgImage }: HeroSectionProps) => {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.2 }}
-          className="text-2xl text-gray-800 text-center max-w-2xl"
+          className="text-xl md:text-2xl text-blue-800 text-center max-w-2xl"
         >
           {subtitle}
         </motion.p>
