@@ -1,6 +1,6 @@
-
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import logo from '/public/lovable-uploads/307460108_387435583599238_6386334495691428178_n-removebg-preview.png';
 
 const Footer = () => {
   return (
@@ -11,6 +11,14 @@ const Footer = () => {
       className="bg-blue-900/10 backdrop-blur-sm pt-8 pb-16 mt-12"
     >
       <div className="container mx-auto px-4">
+        <div className="flex justify-center mb-6">
+          <img 
+            src={logo} 
+            alt="Wang Sam Mo Weather Logo" 
+            className="h-16 w-auto object-contain"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-blue-900">Wang Sam Mo Weather Forecast</h3>

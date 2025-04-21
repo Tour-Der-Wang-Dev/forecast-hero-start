@@ -1,10 +1,12 @@
 
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 interface HeroSectionProps {
   title: string;
   subtitle: string;
   bgImage: string;
+  logo: string;
 }
 
 const heroVariants = {
@@ -22,7 +24,7 @@ const heroVariants = {
   },
 };
 
-const HeroSection = ({ title, subtitle, bgImage }: HeroSectionProps) => {
+const HeroSection = ({ title, subtitle, bgImage, logo }: HeroSectionProps) => {
   return (
     <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
       {/* Background Image */}
@@ -38,6 +40,20 @@ const HeroSection = ({ title, subtitle, bgImage }: HeroSectionProps) => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center px-4">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6"
+        >
+          <img 
+            src={logo} 
+            alt="Wang Sam Mo Weather Logo" 
+            className="h-24 w-auto object-contain"
+          />
+        </motion.div>
+
         <motion.h1
           variants={heroVariants}
           initial="hidden"
