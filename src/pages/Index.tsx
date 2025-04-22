@@ -40,7 +40,6 @@ const Index = () => {
         title="Wang Sam Mo Weather"
         subtitle="Real-time weather across all subdistricts"
         bgImage="/lovable-uploads/image (15).jpg"
-        logoPath="/lovable-uploads/307460108_387435583599238_6386334495691428178_n-removebg-preview.png"
       />
       
       <div className="container mx-auto py-8 px-4 space-y-12">
