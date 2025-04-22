@@ -6,6 +6,7 @@ import WeatherSummary from "@/components/WeatherSummary";
 import SubdistrictGrid from "@/components/SubdistrictGrid";
 import FloatingSubdistrictSelector from "@/components/FloatingSubdistrictSelector";
 import Footer from "@/components/Footer";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Index = () => {
   const subdistricts = [
@@ -19,7 +20,7 @@ const Index = () => {
   ];
 
   const [selectedSubdistrict, setSelectedSubdistrict] = useState("All");
-
+  
   const districts = [
     { name: "เทศบาลตำบลวังสามหมอ", cur: 28, min: 23, max: 32, icon: "☀️", onClick: () => console.log("วังสามหมอ clicked") },
     { name: "เทศบาลตำบลลำพันชาด", cur: 27, min: 22, max: 31, icon: "⛅", onClick: () => console.log("ลำพันชาด clicked") },
@@ -36,33 +37,50 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white font-sans">
-      <HeroSection
-        title="Wang Sam Mo Weather"
-        subtitle="Real-time weather across all subdistricts"
-        bgImage="/lovable-uploads/image (15).jpg"
-      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="container mx-auto py-4 px-4"
+      >
+        <WeatherSummary
+          temp={28}
+          condition="Sunny"
+          lastUpdate={new Date()}
+          icon="☀️"
+        />
+      </motion.div>
+
+      <div className="relative w-full h-[400px] overflow-hidden">
+        <AspectRatio ratio={16/9} className="w-full">
+          <img
+            src="/lovable-uploads/image (15).jpg"
+            alt="Wang Sam Mo Weather Overview"
+            width={1920}
+            height={1080}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </AspectRatio>
+        <div className="absolute inset-0 bg-blue-900/30 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <HeroSection
+            title="Wang Sam Mo Weather"
+            subtitle="Real-time weather across all subdistricts"
+            bgImage="/lovable-uploads/image (15).jpg"
+          />
+        </div>
+      </div>
       
       <div className="container mx-auto py-8 px-4 space-y-12">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">Current Weather</h2>
-          <WeatherSummary
-            temp={28}
-            condition="Sunny"
-            lastUpdate={new Date()}
-            icon="☀️"
-          />
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">Subdistrict Weather</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">
+            Subdistrict Weather
+          </h2>
           <SubdistrictGrid districts={filteredDistricts} />
         </motion.div>
       </div>
