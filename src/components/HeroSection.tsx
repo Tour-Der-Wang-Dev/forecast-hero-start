@@ -1,11 +1,10 @@
-
 import { motion } from "framer-motion";
+import Logo from "./Logo";
 
 interface HeroSectionProps {
   title: string;
   subtitle: string;
   bgImage: string;
-  logoPath?: string;
 }
 
 const heroVariants = {
@@ -23,7 +22,7 @@ const heroVariants = {
   },
 };
 
-const HeroSection = ({ title, subtitle, bgImage, logoPath }: HeroSectionProps) => {
+const HeroSection = ({ title, subtitle, bgImage }: HeroSectionProps) => {
   return (
     <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
       {/* Background Image */}
@@ -39,16 +38,14 @@ const HeroSection = ({ title, subtitle, bgImage, logoPath }: HeroSectionProps) =
 
       {/* Content */}
       <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center px-4">
-        {logoPath && (
-          <motion.img
-            src={logoPath}
-            alt="Logo"
-            className="w-24 h-24 md:w-32 md:h-32 mb-4 object-contain"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-        )}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Logo size={{ width: 120, height: 120 }} />
+        </motion.div>
+
         <motion.h1
           variants={heroVariants}
           initial="hidden"
