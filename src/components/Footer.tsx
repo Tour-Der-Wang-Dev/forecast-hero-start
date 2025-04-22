@@ -13,7 +13,14 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-blue-900">Wang Sam Mo Weather Forecast</h3>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/lovable-uploads/307460108_387435583599238_6386334495691428178_n-removebg-preview.png" 
+                alt="Wang Sam Mo Logo" 
+                className="w-12 h-12 object-contain"
+              />
+              <h3 className="text-xl font-semibold text-blue-900">Wang Sam Mo Weather Forecast</h3>
+            </div>
             <p className="text-blue-700">
               Accurate and real-time weather data across all subdistricts in Wang Sam Mo, Udon Thani.
             </p>
