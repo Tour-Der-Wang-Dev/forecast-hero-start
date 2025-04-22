@@ -1,11 +1,10 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/MainLayout";
 import WeatherSummary from "@/components/WeatherSummary";
 import SubdistrictGrid from "@/components/SubdistrictGrid";
 import FloatingSubdistrictSelector from "@/components/FloatingSubdistrictSelector";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import ImageContainer from "@/components/ImageContainer";
 import HeroSection from "@/components/HeroSection";
 
 const Index = () => {
@@ -53,7 +52,7 @@ const Index = () => {
 
   return (
     <MainLayout {...layoutProps}>
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white font-sans">
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 font-sans">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -66,36 +65,17 @@ const Index = () => {
             lastUpdate={new Date()}
             icon="☀️"
           />
+          
+          <ImageContainer image="/lovable-uploads/image (15).jpg" />
         </motion.div>
 
-        <div className="relative w-full h-[400px] overflow-hidden">
-          <AspectRatio ratio={16/9} className="w-full">
-            <img
-              src="/lovable-uploads/image (15).jpg"
-              alt="Wang Sam Mo Weather Overview"
-              width={1920}
-              height={1080}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </AspectRatio>
-          <div className="absolute inset-0 bg-blue-900/30 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <HeroSection
-              title="Wang Sam Mo Weather"
-              subtitle="Real-time weather across all subdistricts"
-              bgImage="/lovable-uploads/image (15).jpg"
-            />
-          </div>
-        </div>
-        
         <div className="container mx-auto py-8 px-4 space-y-12">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">
+            <h2 className="text-3xl font-bold text-center mb-8 text-blue-800 dark:text-blue-400">
               Subdistrict Weather
             </h2>
             <SubdistrictGrid districts={filteredDistricts} />
