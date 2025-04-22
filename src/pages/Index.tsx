@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/MainLayout";
@@ -106,8 +107,6 @@ const Index = () => {
           selected={selectedSubdistrict}
           onSelect={setSelectedSubdistrict}
         />
-        
-        <Footer />
       </div>
     </MainLayout>
   );
