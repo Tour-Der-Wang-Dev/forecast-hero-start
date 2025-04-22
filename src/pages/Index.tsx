@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/MainLayout";
@@ -40,13 +41,13 @@ const Index = () => {
       alt: "Wang Sam Mo Weather"
     },
     navigationLinks: [
-      { text: "Home", href: "/" },
-      { text: "Weather Map", href: "/weather-map" },
-      { text: "Forecast", href: "/forecast" },
+      { text: "หน้าหลัก", href: "/" },
+      { text: "แผนที่สภาพอากาศ", href: "/weather-map" },
+      { text: "พยากรณ์", href: "/forecast" },
     ],
     footerInfo: {
-      contact: "Email: contact@wangsammo-weather.th | Phone: +66 123 456 789",
-      copyright: `© ${new Date().getFullYear()} Wang Sam Mo Weather. All rights reserved.`
+      contact: "อีเมล: contact@wangsammo-weather.th | โทร: +66 123 456 789",
+      copyright: `© ${new Date().getFullYear()} Wang Sam Mo Weather. สงวนลิขสิทธิ์`
     }
   };
 
@@ -59,9 +60,17 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="container mx-auto py-4 px-4"
         >
+          <div className="mb-6">
+            <HeroSection
+              title="วังสามหมอ สภาพอากาศ"
+              subtitle="ข้อมูลสภาพอากาศแบบเรียลไทม์สำหรับทุกตำบลในอำเภอวังสามหมอ"
+              bgImage="/lovable-uploads/image (19).jpg"
+            />
+          </div>
+          
           <WeatherSummary
             temp={28}
-            condition="Sunny"
+            condition="แดดจัด"
             lastUpdate={new Date()}
             icon="☀️"
           />
@@ -76,7 +85,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h2 className="text-3xl font-bold text-center mb-8 text-blue-800 dark:text-blue-400">
-              Subdistrict Weather
+              สภาพอากาศตำบล
             </h2>
             <SubdistrictGrid districts={filteredDistricts} />
           </motion.div>
